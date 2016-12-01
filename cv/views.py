@@ -72,23 +72,18 @@ def result(request):
             data_uri = 'data:image/jpg;base64,'
             
             data_uri += mStream.getvalue().encode('base64').replace('\n','')
+            try:
+                result_str, cv_img = process(create_opencv_image_from_stringio(mStream, 1))
+            except:
+                return HttpResponse("can't find face! please another image!")
             
-            result_str, sangmoon = process(create_opencv_image_from_stringio(mStream, 1))
-            print(result_str)
-            """
-            moonStream = cStringIO.StringIO(sangmoon)
-            sangmoon_uri = 'data:image/jpg;base64,'
+            ret, buf = cv2.imencode( '.jpg', cv_img )
             
-            sangmoon_uri += moonStream.getvalue().encode('base64').replace('\n','')
-            """
-            ret, buf = cv2.imencode( '.jpg', sangmoon )
-            # sangmoon_uri = np.array(buf).tostring()
-            #b64 = base64.encodestring(buf)
             b64 = cStringIO.StringIO(buf)
-            sangmoon_uri = 'data:image/jpg;base64,'
-            sangmoon_uri += b64.getvalue().encode('base64').replace('\n', '')
-            print(sangmoon_uri)
-            return render(request, "result.html",{"sangmoon_src":sangmoon_uri, "img_src":data_uri, "result_str":result_str, },)
+            cv_img_uri = 'data:image/jpg;base64,'
+            cv_img_uri += b64.getvalue().encode('base64').replace('\n', '')
+            
+            return render(request, "result.html",{"cv_img_src":cv_img_uri, "img_src":data_uri, "result_str":result_str, },)
 
     return HttpResponseForbidden("allowed only POST")
 
