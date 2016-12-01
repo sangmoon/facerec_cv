@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+	<article>
+		<h3>Result Here!</h3>
+		<H2>{{result_str}}</H2>
+    	<hr>
+		<img src="{{img_src}}" width="540" height="360" alt="img" />
+		<img src="{{sangmoon_src}}" width="300" height="300" alt="imgg" />
+		<form action="/">
+			<input type="submit" value="return to home">
+		</form>
+	</article>
+{% endblock %}

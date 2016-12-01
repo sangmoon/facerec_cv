@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+    <script type="text/javascript">
+             function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            
+            reader.onload = function (e) {
+                $('#pic')
+                    .attr('src', e.target.result)
+                    .width(540)
+                    .height(360);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    </script>
+
+    <article>
+    <h3>Team Q project</h3>
+    <h4>Gender classification using openCV</h4>
+    <hr>
+
+
+    <form action="/result" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+    <img id="pic" name="#" src="#" alt="your image" />
+    <input id="upload" type='file' onchange="readURL(this);" name="image" />
+    <input type="submit" value="Submit"/>
+    </form>
+    </article>
+{% endblock %}

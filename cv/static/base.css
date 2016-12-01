@@ -1,0 +1,87 @@
+@import url('http://fonts.googleapis.com/earlyaccess/nanumgothic.css');
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
+
+
+
+body{
+  background-color: #ffffff;
+  color: #151515;
+  font-size: 14px;
+  font-family: 'Spoca Han Sans','Nanum Gothic', Helvetica, Arial, sans-serif;
+  text-decoration: none;
+  height: 100%;
+}
+
+header{
+    margin-bottom: 2rem;
+}
+
+header a{
+    color: #151515;
+}
+
+
+nav{
+    padding:2rem 0rem 1rem 0rem;
+}
+
+nav a{
+    text-transform: uppercase;
+}
+
+nav ul{
+    padding-left:0;
+}
+
+nav .pull-left li, .pull-right li{
+    margin-right: 2rem;
+    display: inline;
+}
+
+.main a{
+    color: #151515;
+}
+
+
+#mark a{
+    text-decoration: none;
+}
+
+.content {
+    width: 100%;
+    margin: 2rem 0rem;
+}
+article{
+    margin:2rem 0rem;
+    min-height: 100%;
+}
+
+.article {
+    margin:2rem 0rem;
+}
+article .article_header{
+    margin: 3rem 0rem;
+    text-align: center;
+}
+
+footer{
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width:100%;
+    margin-top: 2rem;
+}
+
+footer #footer{
+    margin-bottom: 0rem;
+
+}
+
+footer ul{
+    padding: 2rem 0rem 1rem 0rem;
+    padding-left:0;
+}
+footer li{
+    margin-right: 2rem;
+    display: inline;
+}
